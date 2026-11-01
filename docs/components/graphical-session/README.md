@@ -21,5 +21,10 @@ The Sway config starts Waybar and expects `kitty`, `rofi` with a theme under
 user-local PipeWire launcher. Waybar calls `swaymsg`, `kitty`, `iwctl`,
 `helvum`, and its temperature script; its network module currently selects
 `wlan0`. Check these paths, tools, and the interface name on other hosts.
+The current Kitty and Rofi sources are under `dotfiles/config/kitty/` and
+`dotfiles/config/rofi/`; Kitty includes the Solarized Light theme and keeps
+the Dark theme as an option. These are source copies, not live symlinks.
+Check that the JetBrains Mono Nerd Font used by Kitty is installed on the
+target host. The old Kitty backup is deliberately not tracked.
 Legacy `*.old` files, the incomplete `sway/env`, and empty Waybar theme
 placeholders were intentionally not copied.
