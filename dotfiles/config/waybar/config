@@ -1,0 +1,160 @@
+{
+    // -------------------------------------------------------------------------
+    // Global configuration
+    // -------------------------------------------------------------------------
+
+    "layer": "top",
+    "position": "top",
+
+    // If height property would be not present, it'd be calculated dynamically
+    //"height": 24,
+    //"width": 1366,
+
+    "modules-left": [
+        "sway/mode",
+        "sway/scratchpad",
+        "sway/workspaces",
+    ],
+    "modules-right": [
+        "battery",
+        "memory",
+		"custom/temperature",
+        "cpu",
+        "network",
+        "wireplumber",
+        "sway/language",  // Using sway/language module
+        "clock#date",
+        "clock#time"
+    ],
+    // -------------------------------------------------------------------------
+    // Modules
+    // -------------------------------------------------------------------------
+
+    "wireplumber": {
+      "format": "{volume}% {icon}",
+      "format-icons": ["", "", ""],
+      "format-muted": "",
+      "max-volume": 120,
+      "scroll-step": 2,
+      "states": {
+         "mute": 0,
+         "low": 1,
+         "medium": 40,
+         "high": 80,
+         "overamplified": 100
+      },
+      "on-click-right": "helvum",
+      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+    },
+
+    "network": {
+        "interface": "wlan0",
+        "format": "{ifname} ",
+        "format-wifi": "  {essid}",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{essid} ({signalStrength}%) ",
+        "tooltip-format-disconnected": "Disconnected",
+        "on-click-right": "helvum",
+        "on-click": "kitty -- iwctl",
+        "max-length": 50
+    },
+
+    "battery": {
+        "interval": 1,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": " {capacity}%", // Icon: bolt
+        "format-discharging": "{icon}  {capacity}%",
+        "format-icons": [
+            "", // Icon: battery-full
+            "", // Icon: battery-three-quarters
+            "", // Icon: battery-half
+            "", // Icon: battery-quarter
+            ""  // Icon: battery-empty
+        ],
+        "tooltip": false
+    },
+
+    "clock#time": {
+        "interval": 1,
+        "format": " {:%H:%M:%S}",
+        "tooltip": false
+    },
+
+    "clock#date": {
+        "interval": 20,
+        "format": "󰃶 {:%e %b %Y}", // Icon: calendar-alt
+        //"tooltip-format": "{:%e %B %Y}"
+        "tooltip": false
+    },
+
+    "cpu": {
+        "interval": 5,
+        "tooltip": false,
+        "format": "  {usage}%", // Icon: microchip
+        "states": {
+          "warning": 70,
+          "critical": 90
+        }
+    },
+
+    // Sway language module - shows current keyboard layout
+    "sway/language": {
+        "format": " {short}",
+        "on-click": "swaymsg input type:keyboard xkb_switch_layout next",
+        "tooltip": true,
+        "tooltip-format": "Layout: {long}"
+    },
+
+    "memory": {
+        "interval": 5,
+        "format": "  {}%", // Icon: memory
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+
+    // Scratchpad module for Sway
+    "sway/scratchpad": {
+        "format": "󰚹 {} ",
+        "format-icons": ["󰟢", "󰎤", "󰎧", ""], // Empty when no windows, icon when windows exist
+        "tooltip": false,
+        "show-empty": false
+    },
+
+    "sway/mode": {
+        "format": "<span style=\"italic\">  {}</span>", // Icon: expand-arrows-alt
+        "tooltip": false
+    },
+
+    "sway/window": {
+        "format": "{}",
+        "max-length": 120,
+		"swap-icon-label": false
+    },
+
+    "sway/workspaces": {
+        "window-rewrite": {},
+        "all-outputs": false,
+        "disable-scroll": true,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": "",
+            "focused": "",
+            "default": ""
+        }
+        // Remove swap-icon-label if it's causing issues
+    },
+
+	"custom/temperature": {
+	  "exec": "~/.config/waybar/scripts/temperature.sh",
+	  "interval": 5,
+	  "return-type": "json",
+	  "format": "{}",
+      "tooltip": true,
+      "tooltip-format": "{alt}"
+	}
+}

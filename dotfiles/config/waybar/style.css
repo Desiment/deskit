@@ -1,0 +1,301 @@
+/* ===============================================
+   WAYBAR SOLARIZED THEME
+   Solarized Light color scheme with consistent backgrounds
+   =============================================== */
+
+/* ===============================================
+   GLOBAL SETTINGS
+   =============================================== */
+* {
+    font-family: JetBrainsMono Nerd Font; /* Use Nerd Font for icons */
+    font-size: 12px; /* Base font size */
+}
+
+/* ===============================================
+   SOLARIZED COLOR PALETTE (Light Theme)
+   =============================================== */
+@define-color s-base03    #002b36; /* Darkest background */
+@define-color s-base02    #073642; /* Dark background */
+@define-color s-base01    #586e75; /* Content text (default) */
+@define-color s-base00    #657b83; /* Content text (brighter) */
+@define-color s-base0     #839496; /* Comments/secondary text */
+@define-color s-base1     #93a1a1; /* Bright comment text */
+@define-color s-base2     #eee8d5; /* Light background highlight */
+@define-color s-base3     #fdf6e3; /* Lightest background (main) */
+@define-color s-yellow    #b58900; /* Yellow accent */
+@define-color s-orange    #cb4b16; /* Orange accent */
+@define-color s-red       #dc322f; /* Red accent */
+@define-color s-magenta   #d33682; /* Magenta accent */
+@define-color s-violet    #6c71c4; /* Violet accent */
+@define-color s-blue      #268bd2; /* Blue accent */
+@define-color s-cyan      #2aa198; /* Cyan accent */
+@define-color s-green     #859900; /* Green accent */
+
+/* ===============================================
+   MAIN WAYBAR WINDOW
+   =============================================== */
+window#waybar {
+    background-color: @s-base3; /* Main background color */
+    border-bottom: 3px solid @s-base2; /* Bottom border */
+    color: @s-base01; /* Default text color */
+    transition-property: background-color;
+    transition-duration: .5s; /* Smooth transitions */
+}
+
+/* Hidden state (when waybar is hidden) */
+window#waybar.hidden {
+    opacity: 0.2; /* Fade out when hidden */
+}
+
+/* ===============================================
+   BUTTON STYLING
+   =============================================== */
+button {
+    box-shadow: inset 0 -3px transparent; /* Default button state */
+    border: none;
+    border-radius: 0; /* Square corners */
+}
+
+button:hover {
+    background: inherit; /* Inherit parent background */
+    box-shadow: inset 0 -3px @s-base01; /* Underline on hover */
+}
+
+/* ===============================================
+   WORKSPACES MODULE
+   =============================================== */
+#workspaces button {
+    padding: 0 5px;
+    background-color: transparent; /* Transparent background */
+    color: @s-base01; /* Default text color */
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.1); /* Slight darkening on hover */
+}
+
+#workspaces button.focused {
+    background-color: transparent; /* Keep transparent background */
+    color: @s-blue; /* Blue text for focused workspace */
+    box-shadow: inset 0 -3px @s-blue; /* Blue underline for focused */
+}
+
+#workspaces button.urgent {
+    background-color: transparent; /* Keep transparent background */
+    color: @s-red; /* Red text for urgent workspace */
+    box-shadow: inset 0 -3px @s-red; /* Red underline for urgent */
+}
+
+/* ===============================================
+   MODULES - COMMON STYLING
+   All modules share the same background for consistency
+   =============================================== */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#wireplumber,
+#custom-media,
+#mode,
+#idle_inhibitor,
+#power-profiles-daemon,
+#keyboard-state,
+#language {
+    padding: 0 10px; /* Internal padding */
+    background-color: @s-base3; /* Consistent light background */
+    border-bottom: 3px solid @s-base00; /* Consistent bottom border */
+    color: @s-base01; /* Default text color */
+}
+
+/* ===============================================
+   LAYOUT MARGINS
+   =============================================== */
+#window,
+#workspaces {
+    margin: 0 4px; /* Spacing around workspaces */
+}
+
+/* Remove left margin for first module in left section */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* Remove right margin for last module in right section */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+/* ===============================================
+   CLOCK MODULE
+   =============================================== */
+#clock {
+    /* Inherits common styling */
+    color: @s-base00; /* Slightly brighter text */
+}
+
+/* ===============================================
+   BATTERY MODULE
+   =============================================== */
+#battery {
+    /* Inherits common styling */
+}
+
+#battery.charging, #battery.plugged {
+    color: @s-green; /* Green text when charging */
+    background-color: @s-base3; /* Keep same background */
+    border-bottom: 3px solid @s-green; /* Green underline when charging */
+}
+
+/* Critical battery warning animation */
+@keyframes blink {
+    to {
+        background-color: @s-base3; /* Keep same background */
+        border-bottom: 3px solid @s-red; /* Red underline */
+        color: @s-red; /* Red text */
+    }
+}
+
+#battery.critical:not(.charging) {
+    color: @s-red; /* Red text for critical battery */
+    border-bottom: 3px solid @s-red; /* Red underline */
+    animation-name: blink; /* Blinking animation */
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+/* ===============================================
+   SYSTEM MONITORING MODULES
+   =============================================== */
+#cpu {
+    color: @s-green; /* Green text for CPU */
+}
+
+#memory {
+    color: @s-violet; /* Violet text for Memory */
+}
+
+#disk {
+    color: @s-orange; /* Orange text for Disk */
+}
+
+#custom-temperature {
+    color: @s-yellow; /* Orange text for Temperature */
+}
+
+#custom-temperature.warning {
+    color: @s-orange;
+    border-bottom: 3px solid @s-orange;
+}
+
+#temperature.critical {
+    color: @s-red; /* Red text for critical temperature */
+    border-bottom: 3px solid @s-red; /* Red underline */
+}
+
+/* ===============================================
+   NETWORK MODULE
+   =============================================== */
+#network {
+    color: @s-blue; /* Blue text for network */
+}
+
+#network.disconnected {
+    color: @s-red; /* Red text when disconnected */
+    border-bottom: 3px solid @s-red; /* Red underline */
+}
+
+/* ===============================================
+   AUDIO MODULE (WirePlumber for Wayland/PipeWire)
+   =============================================== */
+#wireplumber {
+    color: @s-base00; /* Default audio text color */
+}
+
+#wireplumber.muted {
+    color: @s-red; /* Red text when muted */
+    border-bottom: 3px solid @s-red; /* Red underline */
+}
+
+
+/* ===============================================
+   IDLE INHIBITOR MODULE
+   =============================================== */
+#idle_inhibitor {
+    color: @s-base01; /* Default text color */
+}
+
+#idle_inhibitor.activated {
+    color: @s-cyan; /* Cyan text when activated */
+    border-bottom: 3px solid @s-cyan; /* Cyan underline */
+}
+
+/* ===============================================
+   LANGUAGE
+   =============================================== */
+#language {
+    background-color: @s-base3; /* Consistent background */
+    border-bottom: 3px solid @s-base00; /* Consistent border */
+    color: @s-base01; /* Default text color */
+    padding: 0 5px;
+    margin: 0 5px;
+    min-width: 16px;
+}
+
+/* ===============================================
+   SCRATCHPAD MODULE
+   =============================================== */
+#scratchpad {
+    background: rgba(0, 0, 0, 0.1); /* Slightly dark background */
+}
+
+#scratchpad.empty {
+    background-color: transparent; /* Transparent when empty */
+}
+
+/* ===============================================
+   PRIVACY MODULE (Screen sharing, microphone, etc.)
+   =============================================== */
+#privacy {
+    padding: 0;
+}
+
+#privacy-item {
+    padding: 0 5px;
+    background-color: @s-base3; /* Consistent background */
+    color: @s-base01; /* Default text color */
+}
+
+#privacy-item.screenshare {
+    color: @s-orange; /* Orange for screen sharing */
+    border-bottom: 3px solid @s-orange;
+}
+
+#privacy-item.audio-in {
+    color: @s-green; /* Green for microphone */
+    border-bottom: 3px solid @s-green;
+}
+
+#privacy-item.audio-out {
+    color: @s-blue; /* Blue for speakers */
+    border-bottom: 3px solid @s-blue;
+}
+
+/* ===============================================
+   POWER PROFILES MODULE
+   =============================================== */
+#power-profiles-daemon {
+    /* Inherits common styling */
+}
+
+/* ===============================================
+   FOCUS STATE
+   =============================================== */
+label:focus {
+    background-color: rgba(0, 0, 0, 0.1); /* Slight focus indication */
+}

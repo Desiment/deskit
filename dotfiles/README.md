@@ -6,9 +6,10 @@ but is not copied verbatim into the home directory:
 - `config/<app>/` -> `~/.config/<app>/` for each explicitly selected app.
 - Other destinations need their own mapping before any files are added.
 
-`config/nvim/` and `config/ranger/` are independent Git submodules. Other
-deployable dotfiles have not yet been selected. Do not copy this README into
-the home directory.
+`config/nvim/` and `config/ranger/` are independent Git submodules. Sway and
+Waybar live directly under `config/sway/` and `config/waybar/`. Their other
+dependencies and host assumptions are listed in `docs/components/graphical-session/`.
+Do not copy this README into the home directory.
 
 Apply files individually after reviewing the diff against the target. Keep
 machine-specific values in `hosts/` rather than hardcoding them in shared

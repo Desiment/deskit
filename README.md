@@ -8,7 +8,8 @@ tree is not a one-shot installer.
 
 - `dotfiles/`: opt-in user configuration; `config/<app>/` maps explicitly to
   `~/.config/<app>/`. `config/nvim/` and `config/ranger/` are the public
-  `nvimrc` and `rangerrc` submodules.
+  `nvimrc` and `rangerrc` submodules; `config/sway/` and `config/waybar/` are
+  tracked directly in this repository.
 - `system/`: shared system sources; not a live `/etc`.
 - `hosts/`: machine-specific sources; currently `des-laptop/system/`.
 - `overlay/`: the independently versioned `des-overlay` Git submodule.
