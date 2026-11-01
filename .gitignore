@@ -1,0 +1,21 @@
+# Personal credentials and local machine state must not enter this public repo.
+**/.env
+**/.env.*
+!**/.env.example
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/id_rsa*
+**/id_ed25519*
+**/node_modules/
+**/.cache/
+**/*.swp
+**/*.swo
+**/*.bak-*
+**/*~
+**/gh/hosts.yml
+**/rclone/rclone.conf
+**/openvpn/**
+**/mozilla/**
+**/metadata/md5-cache/

@@ -1,0 +1,13 @@
+net-misc/curl ssh
+net-wireless/iwd monitor client standalone
+net-proxy/sing-box v2ray-api
+net-firewall/nftables json gmp
+net-misc/networkmanager bluetooth concheck introspection modemmanager nss tools wifi iwd resolvconf -systemd -teamd -test -ppp -policykit
+# required by x11-misc/xdg-utils-1.2.1-r11::gentoo
+# required by x11-misc/xdg-utils (argument)
+>=app-text/xmlto-0.0.28-r11 text
+# required by net-libs/nodejs-26.11.1-r1::gentoo
+# required by mail-client/thunderbird-157.0.1::gentoo
+# required by @selected
+# required by @world (argument)
+>=dev-cpp/simdutf-9.2.1 atomic-base64

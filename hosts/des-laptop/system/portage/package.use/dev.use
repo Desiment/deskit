@@ -1,0 +1,17 @@
+# Utils
+sys-libs/zlib minizip
+
+# Java
+dev-java/openjdk headless-awt
+dev-java/openjdk-bin headless-awt
+dev-java/openjdk-jre-bin headless-awt
+virtual/jdk headless-awt
+
+# NodeJS
+net-libs/nodejs npm
+
+# R
+dev-lang/R jpeg libdeflate nls openmp perl png readline  cairo doc icu
+#sci-mathematics/rstudio-2026.04.0.339::jgenco
+sci-mathematics/rstudio -electron server 
+

@@ -1,0 +1,2 @@
+sys-kernel/installkernel efistub dracut
+sys-boot/refind ext2 ext4 iso9660 doc ntfs

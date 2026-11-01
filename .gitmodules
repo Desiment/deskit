@@ -1,0 +1,6 @@
+[submodule "dotfiles/.config/nvim"]
+	path = dotfiles/.config/nvim
+	url = https://github.com/Desiment/nvimrc.git
+[submodule "overlay"]
+	path = overlay
+	url = https://github.com/Desiment/des-overlay.git

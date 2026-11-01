@@ -1,0 +1,4 @@
+dev-libs/girara -libnotify
+
+gui-libs/wlroots drm libinput session vulkan
+gui-apps/waybar libinput udev wifi pipewire mpd network -logind

@@ -1,0 +1,9 @@
+CFLAGS="-march=alderlake -O2 -pipe --param=l1-cache-size=32"
+CXXFLAGS="${CFLAGS}"
+
+CC="gcc"
+CXX="g++"
+CPP="gcc -E"
+AR="ar"
+NM="nm"
+RANLIB="ranlib"

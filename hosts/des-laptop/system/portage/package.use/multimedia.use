@@ -1,0 +1,31 @@
+# General content
+media-video/pipewire ffmpeg extra pipewire-alsa sound-server jack-sdk echo-cancel lv2 -man
+media-plugins/calf jack -experimental -gui lash lv2
+# Util libs
+media-libs/libpng apng
+media-libs/libvpx postproc
+media-libs/harfbuzz icu
+media-libs/opus custom-modes
+media-libs/vips fontconfig -highway imagemagick introspection jpeg lcms pdf png svg pango tiff 
+
+# Fonts
+media-fonts/noto-emoji icons
+media-fonts/nerdfonts hack noto
+
+# LaTeX
+app-text/texlive-core xetex luajittex
+app-text/texlive context extra games graphics humanities luatex metapost music pdfannotextractor png pstricks publishers science truetype xml xetex
+
+# Graphics uttils
+media-gfx/graphviz nls pdf perl postscript python svg cairo webp
+media-gfx/imagemagick bzip2 cxx djvu fontconfig jpeg lcms openmp perl png postscript svg truetype zlib corefonts fftw -fpx graphviz -hardened jpeg2k jpegxl pango webp xml zip
+
+# Applications
+app-text/zathura sqlite synctex -seccomp
+app-text/zathura-meta djvu epub postscript
+>=app-text/poppler-26.01.0 cairo
+www-client/firefox:rapid dbus jumbo-build system-av1 system-pipewire system-harfbuzz system-icu system-jpeg system-libevent system-libvpx system-webp system-png libproxy wayland jack  -wifi 
+mail-client/thunderbird jack system-av1 system-harfbuzz system-jpeg system-libevent system-libvpx system-pipewire system-png system-webp wayland eme-free -wifi system-librnp  
+
+
+media-libs/imlib2 -shm

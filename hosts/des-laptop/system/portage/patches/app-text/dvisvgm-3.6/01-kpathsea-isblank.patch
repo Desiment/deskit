@@ -1,0 +1,13 @@
+--- a/src/FileFinder.cpp
++++ b/src/FileFinder.cpp
+@@ -32,6 +32,10 @@
+ #endif
+
++#ifdef isblank
++#undef isblank
++#endif
++
+ #include <cstdlib>
+ #include <fstream>
+ #include <map>
+ #include <set>
