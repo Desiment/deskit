@@ -4,3 +4,6 @@
 [submodule "overlay"]
 	path = overlay
 	url = https://github.com/Desiment/des-overlay.git
+[submodule "dotfiles/config/ranger"]
+	path = dotfiles/config/ranger
+	url = https://github.com/Desiment/rangerrc.git

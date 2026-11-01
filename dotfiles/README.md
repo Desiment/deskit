@@ -6,8 +6,9 @@ but is not copied verbatim into the home directory:
 - `config/<app>/` -> `~/.config/<app>/` for each explicitly selected app.
 - Other destinations need their own mapping before any files are added.
 
-`config/nvim/` is an independent Git submodule. Other deployable dotfiles have
-not yet been selected. Do not copy this README into the home directory.
+`config/nvim/` and `config/ranger/` are independent Git submodules. Other
+deployable dotfiles have not yet been selected. Do not copy this README into
+the home directory.
 
 Apply files individually after reviewing the diff against the target. Keep
 machine-specific values in `hosts/` rather than hardcoding them in shared
