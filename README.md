@@ -6,8 +6,8 @@ tree is not a one-shot installer.
 
 ## Layout
 
-- `dotfiles/`: opt-in user configuration, arranged like the home directory;
-  `.config/nvim/` is the public `nvimrc` submodule.
+- `dotfiles/`: opt-in user configuration; `config/<app>/` maps explicitly to
+  `~/.config/<app>/`. `config/nvim/` is the public `nvimrc` submodule.
 - `system/`: shared system sources; not a live `/etc`.
 - `hosts/`: machine-specific sources; currently `des-laptop/system/`.
 - `overlay/`: the independently versioned `des-overlay` Git submodule.
@@ -41,8 +41,9 @@ locations rather than symlinked to this writable tree:
 - Portage source: `hosts/<host>/system/portage/` -> `/etc/portage/`.
 - Custom OpenRC files: `hosts/<host>/system/openrc/` -> `/etc/init.d/` and
   `/etc/conf.d/` as appropriate.
-- Dotfiles: selected files in `dotfiles/` -> the target user's home directory;
-  never copy a whole home directory.
+- Dotfiles: select an application under `dotfiles/config/` and review its files
+  before copying them to `~/.config/<app>/`. Other dotfile destinations must
+  be mapped explicitly; never copy the whole `dotfiles/` tree.
 - Gentoo overlay: maintained separately under `overlay/`; a root-owned copy
   under `/var/db/repos/des-overlay` is the intended deployment target.
 

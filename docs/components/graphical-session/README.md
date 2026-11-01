@@ -7,4 +7,5 @@ This component covers the user-facing Wayland session:
 - desktop portals and session environment
 - display and monitor policy
 
-Actual user configuration belongs under `dotfiles/.config/`.
+Actual user configuration belongs under `dotfiles/config/` and maps to
+`~/.config/` when selected for deployment.

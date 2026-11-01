@@ -9,4 +9,5 @@ term `desktop`:
 - document readers and reference management
 - file management
 
-Application configuration belongs under `dotfiles/.config/`.
+Application configuration belongs under `dotfiles/config/` and maps to
+`~/.config/` when selected for deployment.
